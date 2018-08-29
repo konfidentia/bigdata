@@ -8,7 +8,8 @@ from pyspark.ml.linalg import Vectors
 if __name__ == "__main__":
 
     # Create a SparkSession (Note, the config section is only for Windows!)
-    spark = SparkSession.builder.config("spark.sql.warehouse.dir", "file:///C:/temp").appName("LinearRegression").getOrCreate()
+    spark = SparkSession.builder.appName("LinearRegression").getOrCreate()
+    spark.sparkContext.setLogLevel("ERROR")
 
     # Load up our data and convert it to the format MLLib expects.
     inputLines = spark.sparkContext.textFile("regression.txt")

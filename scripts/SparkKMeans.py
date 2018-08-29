@@ -9,6 +9,7 @@ K = 5
 # Boilerplate Spark stuff:
 conf = SparkConf().setMaster("local").setAppName("SparkKMeans")
 sc = SparkContext(conf = conf)
+sc.setLogLevel("ERROR")
 
 #Create fake income/age clusters for N people in k clusters
 def createClusteredData(N, k):
